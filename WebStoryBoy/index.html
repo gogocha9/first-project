@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="YoungHyun Cha"> <!-- 만든 사람 -->
+    <meta name="description" content="웹 표준을 준수한 사이트 예제입니다."> <!-- 웹 소개 -->
+    <meta name="keywords" content="웹스토리보이, 웹표준, 웹접근성, 사이트 만들기"> <!-- 검색 키워드 -->
+    <meta name="generator" content="VSCODE">
+    <title>Cha YoungHyun's SITE</title>
+
+    <!-- CSS Style -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- 웹 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 스킵 내비게이션 -->
+    <div id="skip">
+        <a href="#cont_nav">전체 메뉴 바로가기</a>
+        <a href="#cont_ban">배너 영역 바로가기</a>
+        <a href="#cont_cont">컨텐츠 영역 바로가기</a>
+    </div>
+    <!-- //스킵 내비게이션 -->
+
+    <div id="wrap">
+        <div id="header">
+            <div class="container">
+                <div class="header">
+                    <div class="header-menu">
+                        <a href="#">Desinger</a>
+                        <a href="#">Publisher</a>
+                        <a href="#">Youtube</a>
+                    </div>
+                    <!-- //헤더 메뉴 -->
+                    <div class="header-tit">
+                        <h1>Professional Publisher &amp; Designer</h1><br>
+                        <a href="https://webstoryboy.co.kr">webstory.co.kr</a>
+                    </div>
+                    <!-- //헤더 타이틀 -->
+
+                    <!-- 이미지를 표현하는 방법
+                        1. img 태그로 표현(의미가 있을 때) / alt 태그 - 대체 문자 표현
+                        2. background 속성으로 표현(의미가 없을 때) - 대체 문자 x
+                        3. 이미지를 background 속성 / 
+                           가상으로 대체 문자를 만들어줌(IR 효과)
+                           이미지 스프라이트
+                    -->
+                    <div class="header-icon">
+                        <a href="#" class="icon1"><span class="ir_pm">icon1</span></a>
+                        <a href="#" class="icon2"><span class="ir_pm">icon2</span></a>
+                        <a href="#" class="icon3"><span class="ir_pm">icon3</span></a>
+                        <a href="#" class="icon4"><span class="ir_pm">icon4</span></a>
+                    </div>
+                    <!-- //헤더 아이콘 -->
+                </div>
+            </div>
+        </div>
+        <!-- //header -->
+        <div id="contents">
+            <div id="cont_nav">
+                <div class="container"></div>
+            </div>
+            <!-- //cont_nav -->
+            <div id="cont_tit">
+                <div class="container"></div>
+            </div>
+            <!-- //cont_tit -->
+            <div id="cont_ban">
+                <div class="container"></div>
+            </div>
+            <!-- //cont_ban -->
+            <div id="cont_cont">
+                <div class="container"></div>
+            </div>
+            <!-- //cont_cont -->
+        </div>
+        <!-- //contents -->
+        <div id="footer">
+            <div class="container"></div>
+        </div>
+        <!-- //footer -->
+    </div>
+    <!-- //wrap -->
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DashBoard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h2>LOGO</h2>
+            <span>
+                <ion-icon name="airplane-outline"></ion-icon>
+            </span>
+        </div>
+
+        <div class="search">
+            <input type="text" placeholder="Search here...">
+            <span>
+                <ion-icon name="search"></ion-icon>
+            </span>
+        </div>
+
+        <div class="profile">
+            <div class="hea_item">
+                <span>
+                    <ion-icon name="mail"></ion-icon>
+                </span>
+                <span>
+                    <ion-icon name="apps"></ion-icon>
+                </span>
+            </div>
+
+            <div></div>
+
+            <div class="user">
+                <img src="img/user.png" alt="user" width="45px" height="45px">
+            </div>
+
+            <button>Sign Up</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="nav">
+            <div class="btn-arrow">
+                <div id="nav_btn">
+                    <ion-icon name="arrow-back-circle-outline"></ion-icon>
+                    <ion-icon name="arrow-forward-circle-outline"></ion-icon>
+                </div>
+            </div>
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">DashBoard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="person-outline"></ion-icon>
+                        </span>
+                        <span class="title">Customers</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                        </span>
+                        <span class="title">Password</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="cardBox">
+                <div class="card">
+                    <div>
+                        <div class="cardNames">Ship</div>
+                        <div class="numbers">60</div>
+                    </div>
+                    <span>
+                        <ion-icon name="boat-outline"></ion-icon>
+                    </span>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="cardNames">ID</div>
+                        <div class="numbers">1,382</div>
+                    </div>
+                    <span>
+                        <ion-icon name="finger-print-outline"></ion-icon>
+                    </span>
+                </div>
+
+                <div class="card">
+                    <div class="cardContent">
+                        <div class="cardNames">Gift</div>
+                        <div class="numbers">3</div>
+                    </div>
+                    <span>
+                        <ion-icon name="gift-outline"></ion-icon>
+                    </span>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="cardNames">Mail</div>
+                        <div class="numbers">15</div>
+                    </div>
+                    <span>
+                        <ion-icon name="mail-outline"></ion-icon>
+                    </span>
+                </div>
+            </div>
+
+            <div class="chartBox">
+                <div class="box">
+                    <canvas id="myChart"></canvas>
+                </div>
+                <div class="box">
+                    <canvas id="earning"></canvas>
+                </div>
+            </div>
+
+            <div class="chartBox">
+                <div class="box">
+                    <canvas id="view"></canvas>
+                </div>
+                <div class="contectBox">
+                    <div class="content">
+                        <h1>contect Me!</h1>
+                        <h1>gogocha9@naver.com</h1>
+                    </div>
+                    <img src="img/free-icon-paper-plane-2067613.png" alt="paper">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
+    <script src="my_chart.js"></script>
+    <script>
+        let nav_bnt = document.getElementById('nav_btn');
+        let nav = document.querySelector('.nav');
+        let section = document.querySelector('.section');
+        let nav_btn_c = document.querySelector('#nav_btn ion-icon');
+
+        nav_bnt.onclick = () => {
+            nav.classList.toggle('active');
+            section.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>

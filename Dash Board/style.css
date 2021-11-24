@@ -1,0 +1,429 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nunito:wght@300;400;600;700;900&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-family: 'Nunito', sans-serif;
+}
+
+body
+{
+    background: #eeeeee;
+    min-height: 100vh;
+}
+
+header
+{
+    position: relative;
+    height: 65px;
+    background: #fff;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(58, 59, 69, .05);
+    z-index: 10;
+}
+
+header .logo
+{
+    position: relative;
+    display: flex;
+    align-items: center;
+    left: 80px;
+}
+
+header .logo span
+{
+    position: absolute;
+    color: #4e73df;
+    font-size: 2em;
+    transform: translateX(260%) translateY(-25%) rotate(325deg);
+    margin-left: 5px;
+    z-index: 11;
+    text-shadow: 10px 10px 5px #000;
+}
+
+header .logo h2
+{
+    font-size: 2em;
+    color: #4e73df;
+}
+
+header .search
+{
+    position: relative;
+    right: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .search input
+{
+    width: 300px;
+    border: 2px solid #ccc;
+    padding: 5px 10px;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-right: none;
+    color: #707070;
+}
+
+header .search input:focus
+{
+    outline: none;
+    border: 2px solid #4e73df;
+    border-right: none;
+}
+
+header .search span
+{
+    background: #4e73df;
+    padding: 2.5px 8px;
+    color: #fff;
+    font-size: 20px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+header .search span ion-icon
+{
+    transform: translateY(15%);
+}
+
+header .profile
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .profile .hea_item
+{
+    transform: translateY(15%);
+}
+
+header .profile .hea_item span
+{
+    color: #ccc;
+    margin: 0 10px;
+    font-size: 1.5em;
+}
+
+header .profile .hea_item span:nth-child(2)
+{
+    margin: 0px;
+}
+
+header .profile div:nth-child(2)
+{
+    border-right: 1px solid #ccc;
+    margin: 0 30px;
+    height: 40px;
+}
+
+header .profile .user
+{
+    margin-right: 30px;
+    transform: translateY(5%);
+}
+
+header .profile button
+{
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    background: #4e73df;
+    border-radius: 4px;
+    box-sizing: 0 5px 25px rgba(58, 59, 69, .15);
+}
+
+.container
+{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: calc(137vh - 65px);
+}
+
+.container .nav
+{
+    width: 300px;
+    height: 100%;
+    background: #4e73df;
+    border-top-right-radius: 20px;
+    overflow: hidden;
+    border-left: 10px solid #4e73df;
+    transition: 0.5s;
+}
+
+.container .nav ul
+{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.container .nav ul li
+{
+    position: relative;
+    width: 100%;
+    list-style: none;
+    padding: 3px 20px 3px 10px;
+    /* list-style: none;
+    margin: 20px 0;
+    padding: 3px 20px;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    line-height: 70px; */
+}
+
+.container .nav .btn-arrow
+{
+    color: #fff;
+    font-size: 3em;
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container .nav .btn-arrow #nav_btn
+{
+    width: 60px;
+    height: 60px;
+}
+
+.container .nav.active .btn-arrow #nav_btn ion-icon:nth-child(1),
+.container .nav .btn-arrow #nav_btn ion-icon:nth-child(2)
+{
+    display: none;
+}
+
+.container .nav.active .btn-arrow #nav_btn ion-icon:nth-child(2),
+.container .nav .btn-arrow #nav_btn ion-icon:nth-child(1)
+{
+    display: inline-block;
+}
+
+/* hover */
+header .profile .hea_item span:hover
+{
+    color: #4e73df;
+}   
+
+.container .nav ul li:hover
+{
+    background: #fff;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.container .nav ul li:hover a
+{
+    color: #4e73df;
+    border-right: 4px dashed #4e73df;
+}
+
+.container .nav ul li a
+{
+    position: relative;
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+    color: #fff;
+}
+
+.container .nav ul li a .icon
+{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 75px;
+    text-align: center;
+}
+
+.container .nav ul li a .icon ion-icon
+{
+    font-size: 1.75em;
+}
+
+.container .nav ul li a .title
+{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+    font-size: 20px;
+}
+
+.container .section .cardBox .card:hover
+{
+    background: #4e73df;
+}
+
+.container .section .cardBox .card:hover span
+{
+    color: #fff;
+}
+
+.container .section .cardBox .card:hover .numbers,
+.container .section .cardBox .card:hover .cardNames
+{
+    color: #fff;
+}
+
+/* //hover */
+
+.container .nav.active
+{
+    width: 80px;
+    border: none;
+}
+
+.container .nav.active ul li:hover
+{
+    border-radius: 10%;
+}
+
+.container .nav.active ul li:hover a
+{
+    border: none;
+}
+
+.container .section
+{
+    width: calc(100% - 300px);
+    left: 300px;
+    padding: 50px 30px;
+}
+
+.container .section.active
+{
+    width: calc(100% - 80px);
+}
+
+.container .section .cardBox
+{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .section .cardBox .card
+{
+    background: #fff;
+    width: 100%;
+    box-shadow: 0 10px 25px rgba(58, 59, 69, .05);
+    border-radius: 15px;
+    padding: 25px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container .section .cardBox .card .numbers
+{
+    position: relative;
+    right: -10px;
+    color: #4e73df;
+    font-size: 2em;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.container .section .cardBox .card .cardNames
+{
+    position: relative;
+    right: -10px;
+    color: #4e73df;
+    font-size: 1.5em;
+    letter-spacing: 2px;
+}
+
+.container .section .cardBox .card span
+{
+    position: relative;
+    right: 15px;
+    color: #ccc;
+    font-size: 3.5em;
+    display: flex;
+    align-content: center;
+}
+
+.container .section .chartBox
+{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 30px;
+}
+
+.container .section .chartBox .box
+{
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(58, 59, 69, .05);
+    border-radius: 15px;
+    padding: 25px 40px;
+}
+
+.container .section .chartBox .contectBox
+{
+    width: 100%;
+    background: #4e73df;
+    box-shadow: 0 10px 25px rgba(58, 59, 69, .05);
+    border-radius: 15px;
+    padding: 25px 40px;
+    color: #fff;
+    display: flex;
+}
+
+.container .section .chartBox .contectBox h1:nth-child(1)
+{
+    font-size: 4em;
+    margin-bottom: 40px;
+}
+
+.container .section .chartBox .contectBox img
+{
+    position: relative;
+    left: 100px;
+}
+
+@media (max-width: 991px)
+{
+    .container .section .cardBox
+    {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    header .logo
+    {
+        left: 20px;
+    }
+
+    .container .section .chartBox
+    {
+        grid-template-columns: 1fr;
+    }
+
+    header .search
+    {
+        right: 0;
+    }
+}
