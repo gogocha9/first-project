@@ -405,7 +405,7 @@ header .profile .hea_item span:hover
     left: 100px;
 }
 
-@media (max-width: 991px)
+@media (max-width: 1800px)
 {
     .container .section .cardBox
     {
