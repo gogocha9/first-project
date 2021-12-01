@@ -43,12 +43,12 @@
         age: number;
     }
 
-    function join(name: string, age: string): User;
+    function join(name: string, age: string): string;
     function join(name: string, age: number): User;
-    function join(name:string, age:number | string): User | string {
+    function join(name: string, age: number | string): User | string {
         if(typeof age === "number") {
             return {
-                name, 
+                name,
                 age,
             };
         } else {
@@ -57,5 +57,5 @@
     }
 
     const sam: User = join("Sam", 30);
-    const jane: User = join("Jane", "30");
+    const jane: string = join("Jane", "30");
 }
