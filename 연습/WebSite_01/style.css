@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500;600;700;800;900&family=Karla:wght@200;300;400;500;600;700;800&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gothic A1', sans-serif;
+}
+
+body
+{
+    padding: 70px 70px;
+    background: linear-gradient(to right bottom,#eb6105, #fff);
+    height: 100vh;
+    overflow: hidden;
+}
+
+header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .header_left
+{
+    display: flex;
+}
+
+header .header_left .logo
+{
+    margin-right: 50px;
+    font-size: 3em;
+    font-style: italic;
+    color: #fff;
+}
+
+header .header_left ul
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .header_left ul li
+{
+    list-style: none;
+    margin: 0 10px;
+}
+
+header .header_left ul li a
+{
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+}
+
+header .header_left ul li a:hover
+{
+    opacity: .5;
+}
+
+.header_right .bar
+{
+    position: absolute;
+    top: 90px;
+    right: 70px;
+    width: 35px;
+    height: 3px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.header_right .bar:nth-child(1)
+{
+    transform: translateY(8px);
+}
+
+.header_right .bar:nth-child(3)
+{
+    transform: translateY(-8px);
+}
+
+.contacts
+{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 100px;
+}
+
+.contacts span
+{
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin: 10px 0;
+    color: #fff;
+}
+
+.contacts p
+{
+    text-align: left;
+    font-size: 16px;
+    margin: 20px 0;
+    color: #fff;
+}
+
+.contacts h1
+{
+    margin-top: 20px;
+    color: #fff;
+    font-size: 3em;
+}
+
+.view_more
+{
+    display: flex;
+    color: #fff;
+}
+
+.view_more ion-icon
+{
+    font-size: 30px;
+    margin: 8px 0 0 10px;
+}
+
+.view_more ion-icon:hover
+{
+    color: rgb(255, 187, 187);
+}
+
+.sns
+{
+    position: absolute;
+    bottom: 70px;
+    left: 70px;
+}
+
+.sns ul
+{
+    display: flex;
+}
+
+.sns ul li
+{
+    list-style: none;
+    margin: 0 15px;
+}
+
+.sns ul li a
+{
+    font-size: 1.5em;
+    color: #fff;
+}
+
+.sns ul li a:hover
+{
+    color: rgb(255, 187, 187);
+}
+
+img
+{
+    position: absolute;
+    right: 150px;
+    bottom: -250px;
+    -webkit-filter: opacity(.7) drop-shadow(0 0 0 #eb6105);
+    filter: opacity(.7) drop-shadow(0 0 0 #eb6105);
+}
