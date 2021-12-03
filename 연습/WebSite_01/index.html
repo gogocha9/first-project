@@ -49,10 +49,29 @@
         </ul>
     </div>
 
+    <div class="toggleMenu">
+        <h1>OPTION</h1>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Log In</a></li>
+            <li><a href="#">Log Up</a></li>
+            <li><a href="#">My Shopping</a></li>
+        </ul>
+    </div>
+
     <img src="model.png" alt="model" width="750px">
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        const hr = document.querySelector('.header_right');
+        const toggleMenu = document.querySelector('.toggleMenu');
+
+        hr.addEventListener('click', () => {
+            hr.classList.toggle('active');
+            toggleMenu.classList.toggle('active');
+        })
+    </script>
 </body>
 
 </html>
