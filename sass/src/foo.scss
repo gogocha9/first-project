@@ -1,0 +1,54 @@
+$site_max_width: 960px;
+$font_color: #333;
+$link_color: #00c;
+$font_family: Arial, sans-serif;
+$font_size: 16px;
+$line_height: percentage(20px / $font_size);
+$li_margin: 0 10px;
+$button_padding: 10px 15px;
+
+@mixin circle
+{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+body
+{
+  color: $font_color;
+
+  // Property Nesting
+  font: {
+    size: $font_size;
+    family: $font_family;
+  }
+
+  line-height: $line_height;
+}
+
+.list
+{
+  display: flex;
+
+  li
+  {
+    list-style: none;
+    margin: $li_margin;
+    a
+    {
+      text-decoration: none;
+      color: $font_color;
+      &:hover
+      {
+        color: $link_color;
+      }
+    }
+  }
+}
+
+.box
+{
+  @include circle;
+  background: #f00;
+}

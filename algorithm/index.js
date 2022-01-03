@@ -1,16 +1,16 @@
 "use strict";
 {
-    // 2016년 a월 b일은 무슨 요일일까요?
+    // 2021년 a월 b일은 무슨 요일일까요?
     function solution(a, b) {
-        return ['일', '월', '화', '수', '목', '금', '토'][new Date(2021, a, b).getDay()];
+        return ['일','월','화','수','목','금','토'][new Date(2021, a-1, b).getDay()];
     }
-    console.log(solution(12, 16));
+    console.log(solution(12, 31));
 }
 console.log("------------------------------------------------------------------------");
 {
     // 같은 숫자는 싫어
     function solution(arr) {
-        return arr.filter((v, i) => v !== arr[i + 1]);
+        return arr.filter((v, i) => v != arr[i + 1]);
     }
 
     console.log(solution([1, 1, 2, 2, 2, 3, 3, 4, 5, 5, 6, 8, 8]));
@@ -94,7 +94,7 @@ console.log("-------------------------------------------------------------------
 }
 console.log("------------------------------------------------------------------------");
 {
-    // 소수 찾기
+    // 소수 찾기 (에라토스테네스의 체)
     function solution(n) {
         let range = Array(n - 1).fill().map((v, i) => i + 2);
         for (let i = 0; i < range.length; i++) {
@@ -176,3 +176,73 @@ console.log("-------------------------------------------------------------------
     }
     console.log(solution(4));
 }
+console.log("------------------------------------------------------------------------");
+{
+    // 제일 작은 수 제거하기
+    function solution(arr) {
+        const min = Math.min(...arr);
+        const r = arr.filter(v => v !== min);
+        return r.length ? r : [-1];
+    }
+    console.log(solution([2,13,44,5,63,2,43]));
+}
+console.log("------------------------------------------------------------------------");
+{
+    // 짝수와 홀수
+    function solution(n) {
+        return n % 2 ? '홀' : '짝';
+    }
+    console.log(solution(10));
+}
+console.log("------------------------------------------------------------------------");
+{
+    // 최대공약수와 최소공배수
+    function solution(n, m) {
+        function u(n, m) {
+            return m % n ? u(m % n, n) : n
+        }
+        const gcd = u(n, m);
+        return [gcd, n * m / gcd];
+    }
+    console.log(solution(150, 1025));
+}
+console.log("------------------------------------------------------------------------");
+{
+    // 콜라츠 추측
+    function solution(n, count=0) {
+        return count === 500
+        ? -1
+        : n === 1
+            ? count
+            : solution(n % 2 ? n * 3 + 1 : n / 2, count + 1);
+    }
+    console.log(solution(16));
+    console.log(solution(626331));
+}
+console.log("------------------------------------------------------------------------");
+{
+    // 평균 구하기
+    function solution(arr) {
+        return arr.reduce((a, c) => a + c / arr.length, 0);
+    }
+    console.log(solution([10,10,10,10,10,10]));
+}
+console.log("------------------------------------------------------------------------");
+{
+    // 하샤드 수
+    function solution(x) {
+        return !(x % String(x).split('').reduce((a, c) => a + c * 1, 0));
+    }
+    console.log(solution(12));
+}
+console.log("------------------------------------------------------------------------");
+{
+    // 행렬의 덧셈
+    function solution(arr1, arr2) {
+        return arr1.map((arr, 1));
+    }
+    console.log(solution([[1,2],[2,3]], [[3,4],[5,6]]));
+}
+
+// https://www.zerocho.com/category/Algorithm/post/5b7a19b9337215001b3a1900
+
