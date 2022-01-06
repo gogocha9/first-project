@@ -14,6 +14,12 @@ module.exports = {
         rules: [{
             test: /\.vue$/, //끝나는 것 확인하는 정규표현식
             use: 'vue-loader',
+        }, {
+            test: /\.css$/,
+            use: [
+                'vue-style-loader',
+                'css-loader',
+            ]
         }],
     },
     plugins: [
