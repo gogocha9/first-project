@@ -237,12 +237,36 @@ console.log("-------------------------------------------------------------------
 }
 console.log("------------------------------------------------------------------------");
 {
+    // 핸드폰 번호 가리기
+    function solution(phone_number) {
+        return phone_number.replace(/\d(?=\d{4})/g, "*");
+    }
+    console.log(solution("01054477646"));
+}
+console.log("------------------------------------------------------------------------");
+{
     // 행렬의 덧셈
     function solution(arr1, arr2) {
-        return arr1.map((arr, 1));
+        return arr1.map((arr, i) => arr.map((v, j) => v + arr2[i][j]));
     }
-    console.log(solution([[1,2],[2,3]], [[3,4],[5,6]]));
+    console.log(solution([[1,2],[2,3]],[[3,4],[5,6]]));
+}
+console.log("------------------------------------------------------------------------");
+{
+    // x만큼 간격이 있는 n개의 숫자
+    function solution(x, n) {
+        return Array(n).fill(x).map((v, i) => (i + 1) * v);
+    }
+    console.log(solution(2, 5));
+}
+console.log("------------------------------------------------------------------------");
+{
+    // 직사각형 별찍기
+    function solution(x, y) {
+        return Array(y).fill().map(() => '*'.repeat(x)).join('\n');
+    }
+    console.log(solution(5, 3));
 }
 
-// https://www.zerocho.com/category/Algorithm/post/5b7a19b9337215001b3a1900
+// https://www.zerocho.com/category/Algorithm/post/5b7bce15b35bf5001b940db9
 
