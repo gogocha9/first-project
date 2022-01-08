@@ -502,11 +502,51 @@ console.log(
   "------------------------------------------------------------------------"
 );
 {
-  //
-  function solution(n, lost, reserve) {
-    
+  // 소수 만들기
+  function solution(nums) {
+    let answer = 0;
+    const range = nums.length;
+
+    for(let i = 0; i < range - 2; i++) {
+      for(let j = i + 1; j < range - 1; j++) {
+        for(let k = j + 1; k < range; k++) {
+          if(isPrime(nums[i] + nums[j] + nums[k])) {
+            answer++;
+          }
+        }
+      }
+    }
+    return answer;
   }
-  console.log(solution());
+
+  const isPrime = (n) => {
+    for(let i = 2; i <= Math.sqrt(n); i++) {
+      if(n % i === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  console.log(solution([1,2,3,4]));
+  console.log(solution([1,2,7,6,4]));
+}
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // K번째 수
+  function solution(array, commands) {
+    let answer = [];
+
+    for(let i = 0; i < commands.length; i++) {
+      let list = array.slice(commands[i][0]-1, commands[i][1]).sort((p, c) => p - c);
+      console.log(list);
+      answer.push(list[commands[i][2]-1]);
+    }
+    return answer;
+  }
+  console.log(solution([1, 5, 2, 6, 3, 7, 4], [[2, 5, 3], [4, 4, 1], [1, 7, 3]]));
 }
 // console.log(
 //   "------------------------------------------------------------------------"
@@ -523,7 +563,8 @@ console.log(
 // }
 
 // https://www.zerocho.com/category/Algorithm/post/5b7bce15b35bf5001b940db9
+// https://programmers.co.kr/learn/challenges
 
-// 현재 순위 54412 -> 51614 -> 46336
-// 획득한 점수 1050 -> 1056 -> 1069
-// 해결한 문제 수 10 -> 12 -> 13
+// 현재 순위 54412 -> 51614 -> 46336 -> 43701 -> 42411
+// 획득한 점수 1050 -> 1056 -> 1069 -> 1077 -> 1081
+// 해결한 문제 수 10 -> 12 -> 13 -> 14 -> 15
