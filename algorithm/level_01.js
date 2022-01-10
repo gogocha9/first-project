@@ -502,11 +502,11 @@ console.log(
   "------------------------------------------------------------------------"
 );
 {
-  //
-  function solution(n, lost, reserve) {
-    
+  // 소수 만들기
+  function solution(nums) {
+      
   }
-  console.log(solution());
+  console.log(solution([1,2,3,4]));
 }
 // console.log(
 //   "------------------------------------------------------------------------"
@@ -514,12 +514,9 @@ console.log(
 // {
 //   // 연습
 //   function solution(n) {
-//     return String(n)
-//       .split("")
-//       .sort((p, c) => c - p)
-//       .join("");
+
 //   }
-//   console.log(solution(118372));
+//   console.log(solution());
 // }
 
 // https://www.zerocho.com/category/Algorithm/post/5b7bce15b35bf5001b940db9
