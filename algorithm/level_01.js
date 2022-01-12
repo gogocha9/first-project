@@ -547,6 +547,52 @@ console.log(
   }
   console.log(solution([1, 5, 2, 6, 3, 7, 4], [[2, 5, 3], [4, 4, 1], [1, 7, 3]]));
 }
+
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // 음향 더하기
+  function solution(absolutes, signs) {
+    let answer = 0;
+    for (let i = 0; i < absolutes.length; i++) {
+        if (signs[i] === true) {
+            answer = answer + absolutes[i];
+        } else {
+            answer = answer - absolutes[i];
+        }
+    }
+    return answer
+}
+  console.log(solution([4,7,12], [true, false, true]));
+}
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // 신규 아이디 추천
+  function solution(new_id) {
+    new_id = new_id
+    .toLowerCase()
+    .replace(/[^\w\.\-]/g, '')
+    .replace(/[\.]{2,}/g, '.')
+    .replace(/^\./, '')
+    .replace(/\.$/, '');
+    if(!new_id) {
+      new_id = "a";
+    }
+    if(new_id.length >= 16) {
+      new_id = new_id
+      .slice(0, 15)
+      .replace(/\.$/, '');
+    }
+    if(new_id.length <= 2) {
+      new_id = new_id.padEnd(3, new_id[new_id.length - 1]);
+    }
+    return new_id;
+}
+  console.log(solution("...!@BaT#*..y.abcdefghijklm"));
+}
 // console.log(
 //   "------------------------------------------------------------------------"
 // );
@@ -561,6 +607,6 @@ console.log(
 // https://www.zerocho.com/category/Algorithm/post/5b7bce15b35bf5001b940db9
 // https://programmers.co.kr/learn/challenges
 
-// 현재 순위 54412 -> 51614 -> 46336 -> 43701 -> 42411 -> 42151
-// 획득한 점수 1050 -> 1056 -> 1069 -> 1077 -> 1081 -> 1082
-// 해결한 문제 수 10 -> 12 -> 13 -> 14 -> 15 -> 16
+// 현재 순위 54412 -> 51614 -> 46336 -> 43701 -> 42411 -> 42151 -> 41443
+// 획득한 점수 1050 -> 1056 -> 1069 -> 1077 -> 1081 -> 1082 -> 1085
+// 해결한 문제 수 10 -> 12 -> 13 -> 14 -> 15 -> 16 -> 18
