@@ -591,22 +591,43 @@ console.log(
     }
     return new_id;
 }
-  console.log(solution("...!@BaT#*..y.abcdefghijklm"));
+  console.log(solution("...!@BaT#*..y.abcㅎㅇdefghijklm"));
 }
-// console.log(
-//   "------------------------------------------------------------------------"
-// );
-// {
-//   // 연습
-//   function solution(n) {
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // 모의고사
+  function solution(answers) {
+    const one = [1, 2, 3, 4, 5];
+    const two = [2, 1, 2, 3, 2, 4, 2, 5];
+    const three = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
 
-//   }
-//   console.log(solution());
-// }
+    const result = [0, 0, 0];
+    const length = answers.length;
+
+    for (let i = 0; i < length; i++) {
+      if (one[i % 5] === answers[i]) result[0]++;
+      if (two[i % 8] === answers[i]) result[1]++;
+      if (three[i % 10] === answers[i]) result[2]++;
+    }
+    const answer = [];
+    const maxValue = Math.max(...result);
+    let index = 0;
+    for (let i = 0; i < 3; i++) {
+      if (maxValue === result[i]) {
+        answer[index] = i + 1;
+        index++;
+      }
+    }
+    return answer;
+  }
+  console.log(solution([1,2,3,4,5]));
+}
 
 // https://www.zerocho.com/category/Algorithm/post/5b7bce15b35bf5001b940db9
 // https://programmers.co.kr/learn/challenges
 
-// 현재 순위 54412 -> 51614 -> 46336 -> 43701 -> 42411 -> 42151 -> 41443
-// 획득한 점수 1050 -> 1056 -> 1069 -> 1077 -> 1081 -> 1082 -> 1085
-// 해결한 문제 수 10 -> 12 -> 13 -> 14 -> 15 -> 16 -> 18
+// 현재 순위 54412 -> 51614 -> 46336 -> 43701 -> 42411 -> 42151 -> 41443 -> 40054 -> 38909
+// 획득한 점수 1050 -> 1056 -> 1069 -> 1077 -> 1081 -> 1082 -> 1085 -> 1090 -> 1094
+// 해결한 문제 수 10 -> 12 -> 13 -> 14 -> 15 -> 16 -> 18 -> 19 -> 20
