@@ -23,3 +23,14 @@ console.log("-------------------------------------------------------------------
     }
     console.log(solution([[1, 4], [3, 2], [4,1]], [[3,3],[3,3]]));
 }
+console.log("------------------------------------------------------------------------");
+{
+    // 최댓값과 최솟값
+    function solution(s) {
+        let answer = "";
+        let min = s.split(" ");
+        let max = s.split(" ");
+        return min;
+    }
+    console.log(solution("1 2 3 4"));
+}

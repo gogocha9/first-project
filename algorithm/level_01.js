@@ -137,7 +137,7 @@ console.log(
   "------------------------------------------------------------------------"
 );
 {
-  // 수박수박수박수박
+  // 수박수박수박수박수
   function solution(n) {
     return "수박".repeat(n).substr(0, n);
   }
@@ -152,16 +152,18 @@ console.log(
     return s
       .split("")
       .map((l) => {
-        return l === " "
-          ? l
-          : l.charCodeAt() + n > 122 ||
-            (l.charCodeAt() <= 90 && l.charCodeAt() + n > 90)
-          ? String.fromCharCode(l.charCodeAt() + n - 26)
-          : String.fromCharCode(l.charCodeAt() + n);
+        if (l === " ") {
+          return l;
+        }
+
+        const tmp = l.charCodeAt();
+        return l.toUpperCase().charCodeAt() + n > 90
+          ? String.fromCharCode(tmp + n - 26)
+          : String.fromCharCode(tmp + n);
       })
       .join("");
   }
-  console.log(solution("ZzAa", 1));
+  console.log(solution("Zz Aa", 1));
 }
 console.log(
   "------------------------------------------------------------------------"
@@ -468,28 +470,28 @@ console.log(
     let answer = 0;
     let hasUniform = new Array(n).fill(1);
 
-    for(let i = 0; i < lost.length; i++) {
-        hasUniform[lost[i] - 1]--;
+    for (let i = 0; i < lost.length; i++) {
+      hasUniform[lost[i] - 1]--;
     }
 
-    for(let i = 0; i < reserve.length; i++) {
-        hasUniform[reserve[i] - 1]++;
+    for (let i = 0; i < reserve.length; i++) {
+      hasUniform[reserve[i] - 1]++;
     }
 
-    for(let i = 0; i < hasUniform.length; i++) {
-        if(hasUniform[i] === 0) {
-            if(hasUniform[i - 1] === 2) {
-                hasUniform[i]++;
-                hasUniform[i - 1]--;
-            } else if(hasUniform[i + 1] === 2) {
-                hasUniform[i]++;
-                hasUniform[i + 1]--;
-            }
+    for (let i = 0; i < hasUniform.length; i++) {
+      if (hasUniform[i] === 0) {
+        if (hasUniform[i - 1] === 2) {
+          hasUniform[i]++;
+          hasUniform[i - 1]--;
+        } else if (hasUniform[i + 1] === 2) {
+          hasUniform[i]++;
+          hasUniform[i + 1]--;
         }
+      }
 
-        if(hasUniform[i] >= 1) {
-            answer++;
-        }
+      if (hasUniform[i] >= 1) {
+        answer++;
+      }
     }
 
     return answer;
@@ -507,10 +509,10 @@ console.log(
     let answer = 0;
     const range = nums.length;
 
-    for(let i = 0; i < range - 2; i++) {
-      for(let j = i + 1; j < range - 1; j++) {
-        for(let k = j + 1; k < range; k++) {
-          if(isPrime(nums[i] + nums[j] + nums[k])) {
+    for (let i = 0; i < range - 2; i++) {
+      for (let j = i + 1; j < range - 1; j++) {
+        for (let k = j + 1; k < range; k++) {
+          if (isPrime(nums[i] + nums[j] + nums[k])) {
             answer++;
           }
         }
@@ -520,16 +522,16 @@ console.log(
   }
 
   const isPrime = (n) => {
-    for(let i = 2; i <= Math.sqrt(n); i++) {
-      if(n % i === 0) {
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+      if (n % i === 0) {
         return false;
       }
     }
     return true;
-  }
-  console.log(solution([1,2,3,4]));
-  console.log(solution([1,2,3,4]));
-  console.log(solution([1,2,7,6,4]));
+  };
+  console.log(solution([1, 2, 3, 4]));
+  console.log(solution([1, 2, 3, 4]));
+  console.log(solution([1, 2, 7, 6, 4]));
 }
 console.log(
   "------------------------------------------------------------------------"
@@ -539,13 +541,24 @@ console.log(
   function solution(array, commands) {
     let answer = [];
 
-    for(let i = 0; i < commands.length; i++) {
-      let list = array.slice(commands[i][0]-1, commands[i][1]).sort((p, c) => p - c);
-      answer.push(list[commands[i][2]-1]);
+    for (let i = 0; i < commands.length; i++) {
+      let list = array
+        .slice(commands[i][0] - 1, commands[i][1])
+        .sort((p, c) => p - c);
+      answer.push(list[commands[i][2] - 1]);
     }
     return answer;
   }
-  console.log(solution([1, 5, 2, 6, 3, 7, 4], [[2, 5, 3], [4, 4, 1], [1, 7, 3]]));
+  console.log(
+    solution(
+      [1, 5, 2, 6, 3, 7, 4],
+      [
+        [2, 5, 3],
+        [4, 4, 1],
+        [1, 7, 3],
+      ]
+    )
+  );
 }
 
 console.log(
@@ -556,15 +569,15 @@ console.log(
   function solution(absolutes, signs) {
     let answer = 0;
     for (let i = 0; i < absolutes.length; i++) {
-        if (signs[i] === true) {
-            answer = answer + absolutes[i];
-        } else {
-            answer = answer - absolutes[i];
-        }
+      if (signs[i] === true) {
+        answer = answer + absolutes[i];
+      } else {
+        answer = answer - absolutes[i];
+      }
     }
-    return answer
-}
-  console.log(solution([4,7,12], [true, false, true]));
+    return answer;
+  }
+  console.log(solution([4, 7, 12], [true, false, true]));
 }
 console.log(
   "------------------------------------------------------------------------"
@@ -573,24 +586,22 @@ console.log(
   // 신규 아이디 추천
   function solution(new_id) {
     new_id = new_id
-    .toLowerCase()
-    .replace(/[^\w\.\-]/g, '')
-    .replace(/[\.]{2,}/g, '.')
-    .replace(/^\./, '')
-    .replace(/\.$/, '');
-    if(!new_id) {
+      .toLowerCase()
+      .replace(/[^\w\.\-]/g, "")
+      .replace(/[\.]{2,}/g, ".")
+      .replace(/^\./, "")
+      .replace(/\.$/, "");
+    if (!new_id) {
       new_id = "a";
     }
-    if(new_id.length >= 16) {
-      new_id = new_id
-      .slice(0, 15)
-      .replace(/\.$/, '');
+    if (new_id.length >= 16) {
+      new_id = new_id.slice(0, 15).replace(/\.$/, "");
     }
-    if(new_id.length <= 2) {
+    if (new_id.length <= 2) {
       new_id = new_id.padEnd(3, new_id[new_id.length - 1]);
     }
     return new_id;
-}
+  }
   console.log(solution("...!@BaT#*..y.abcㅎㅇdefghijklm"));
 }
 console.log(
@@ -622,12 +633,65 @@ console.log(
     }
     return answer;
   }
-  console.log(solution([1,2,3,4,5]));
+  console.log(solution([1, 2, 3, 4, 5]));
+}
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // 약수의 개수와 덧셈
+  function solution(left, right) {
+    let answer = 0;
+    for (let i = left; i <= right; i++) {
+      if (Math.sqrt(i) % 1 === 0) answer -= i;
+      else answer += i;
+    }
+    return answer;
+  }
+  console.log(solution(13, 17));
+}
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // 부족한 금액 계산하기
+  function solution(price, money, count) {
+    let total = 0;
+    for (let i = 1; i <= count; i++) {
+      total += price * i;
+    }
+    return total < money ? 0 : total - money;
+  }
+  console.log(solution(3, 20, 4));
+}
+
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // 부족한 금액 계산하기 - 가우스 공식
+  function solution(price, money, count) {
+    const tmp = (price * count * (count + 1)) / 2 - money;
+    return tmp > 0 ? tmp : 0;
+  }
+
+  console.log(solution(3, 20, 4));
+}
+
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // 나머지가 1이 되는 수 찾기
+  function solution(n) {
+    for (let i = 2; i < n; i++) {
+      if (n % i === 1) return i;
+    }
+  }
+
+  console.log(solution(10));
+  console.log(solution(12));
 }
 
 // https://www.zerocho.com/category/Algorithm/post/5b7bce15b35bf5001b940db9
 // https://programmers.co.kr/learn/challenges
-
-// 현재 순위 54412 -> 51614 -> 46336 -> 43701 -> 42411 -> 42151 -> 41443 -> 40054 -> 38909 -> 37361
-// 획득한 점수 1050 -> 1056 -> 1069 -> 1077 -> 1081 -> 1082 -> 1085 -> 1090 -> 1094 -> 1100
-// 해결한 문제 수 10 -> 12 -> 13 -> 14 -> 15 -> 16 -> 18 -> 19 -> 20 -> 22
