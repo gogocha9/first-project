@@ -340,18 +340,7 @@ console.log(
   function solution(arr1, arr2) {
     return arr1.map((arr, i) => arr.map((v, j) => v + arr2[i][j]));
   }
-  console.log(
-    solution(
-      [
-        [1, 2],
-        [2, 3],
-      ],
-      [
-        [3, 4],
-        [5, 6],
-      ]
-    )
-  );
+  console.log(solution([[1, 2],[2, 3]],[[3, 4],[5, 6]]));
 }
 console.log(
   "------------------------------------------------------------------------"
@@ -692,6 +681,97 @@ console.log(
   console.log(solution(10));
   console.log(solution(12));
 }
+
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // 가운데 글자 가져오기
+  function solution(s) {
+    if(s.length % 2) {
+      return s.slice(s.length/2, s.length/2+1);
+    }
+    return s.slice(s.length/2 - 1, s.length/2 + 1);
+  }
+
+  console.log(solution("abcde"));
+  console.log(solution("qwer"));
+}
+
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // 3진법 뒤집기
+  function solution(n) {
+    let reversed_N = n.toString(3).split('').reverse().join('');
+    return parseInt(reversed_N, 3);
+}
+
+  console.log(solution(45));
+}
+
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // 숫자 문자열과 영단어
+  function solution(s) {
+    s = s.replace(/zero/g, 0);
+    s = s.replace(/one/g, 1);
+    s = s.replace(/tow/g, 2);
+    s = s.replace(/three/g, 3);
+    s = s.replace(/four/g, 4);
+    s = s.replace(/five/g, 5);
+    s = s.replace(/six/g, 6);
+    s = s.replace(/seven/g, 7);
+    s = s.replace(/eight/g, 8);
+    s = s.replace(/nine/g, 9);
+    return Number(s);
+  }
+
+  console.log(solution("one4seveneight"));
+}
+
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // 로또의 최고 순위와 최저 순위
+  function solution(lottos, win_nums) {
+    let answer = [];
+    let correct = lottos.filter((v) => win_nums.includes(v)).length;
+    let zero = lottos.filter((v) => v === 0).length;
+    let max = correct + zero;
+    // let min
+    return ;
+  }
+
+  console.log(solution([44, 1, 0, 0, 31, 25],[31, 10, 45, 1, 6, 19]));
+}
+
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // 실패율
+  function solution(N, stages) {
+    let answer = [];
+    let people = stages.length;
+
+    for(let i = 1; i <= N; i++) {
+      let fail = stages.filter(v => v === i).length;
+      answer.push([i, fail / people]);
+      people = people - fail;
+    }
+    answer = answer.sort((p, c) => c[1] - p[1]);
+    return answer.map(v => v[0]);
+}
+
+  console.log(solution(5, [2, 1, 2, 6, 2, 4, 3, 3]));
+}
+
+
 
 // https://www.zerocho.com/category/Algorithm/post/5b7bce15b35bf5001b940db9
 // https://programmers.co.kr/learn/challenges
