@@ -693,5 +693,37 @@ console.log(
   console.log(solution(12));
 }
 
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // 정수 제곱근 판별 2
+  function solution(n) {
+    return Math.sqrt(n) % 1 === 0 ? (Math.sqrt(n) + 1) ** 2 : -1;
+  }
+
+  console.log(solution(121));
+  console.log(solution(3));
+}
+
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // 내적
+  function solution(a, b) {
+    let answer = 0;
+    let sum = 0;
+    for (let i = 0; i < a.length; i++) {
+      sum = a[i] * b[i];
+      answer += sum;
+    }
+    return answer;
+  }
+
+  console.log(solution([1, 2, 3, 4], [-3, -1, 0, 2]));
+  console.log(solution([-1, 0, 1], [1, 0, -1]));
+}
+
 // https://www.zerocho.com/category/Algorithm/post/5b7bce15b35bf5001b940db9
 // https://programmers.co.kr/learn/challenges
