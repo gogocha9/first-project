@@ -725,5 +725,128 @@ console.log(
   console.log(solution([-1, 0, 1], [1, 0, -1]));
 }
 
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // 신고 결과 받기
+  function solution(id_list, report, k) {
+    const answer = new Array(id_list.length);
+    answer.fill(0);
+    const report_list = {};
+
+    // key는 userId, value는 신고 당한 사람을 담기 위한 빈 배열
+    // map으로 key와 value만드는 법
+    id_list.map((user) => {
+      report_list[user] = [];
+    });
+
+    report.map((user) => {
+      const [user_id, report_id] = user.split(" ");
+      if (!report_list[report_id].includes(user_id)) {
+        report_list[report_id].push(user_id);
+      }
+    });
+
+    for (const key in report_list) {
+      if (report_list[key].length >= k) {
+        report_list[key].map((user) => {
+          answer[id_list.indexOf(user)] += 1;
+        });
+      }
+    }
+
+    return answer;
+  }
+
+  console.log(
+    solution(
+      ["muzi", "frodo", "apeach", "neo"],
+      ["muzi frodo", "apeach frodo", "frodo neo", "muzi neo", "apeach muzi"],
+      2
+    )
+  );
+}
+
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // 신고 결과 받기
+  function solution(id_list, report, k) {
+    let reports = [...new Set(report)].map((a) => {
+      return a.split(" ");
+    });
+
+    let counts = new Map();
+    for (const bad of reports) {
+      counts.set(bad[1], counts.get(bad[1]) + 1 || 1);
+    }
+
+    let good = new Map();
+    for (const report of reports) {
+      if (counts.get(report[1]) >= k) {
+        good.set(report[0], good.get(report[0]) + 1 || 1);
+      }
+    }
+
+    let answer = id_list.map((a) => good.get(a) || 0);
+    return answer;
+  }
+
+  console.log(
+    solution(
+      ["muzi", "frodo", "apeach", "neo"],
+      ["muzi frodo", "apeach frodo", "frodo neo", "muzi neo", "apeach muzi"],
+      2
+    )
+  );
+}
+
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // 크레인 인형뽑기 게임
+  function solution(board, moves) {
+    const basket = [];
+    let result = 0;
+    moves.forEach((order) => {
+      const doll = pickup(board, order - 1);
+      if (doll) {
+        if (basket[basket.length - 1] === doll) {
+          basket.pop();
+          result += 2;
+        } else {
+          basket.push(doll);
+        }
+      }
+    });
+    return result;
+  }
+
+  function pickup(board, order) {
+    for (let i = 0; i < board.length; i++) {
+      if (board[i][order] !== 0) {
+        const doll = board[i][order];
+        board[i][order] = 0;
+        return doll;
+      }
+    }
+  }
+
+  console.log(
+    solution(
+      [
+        [0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 3],
+        [0, 2, 5, 0, 1],
+        [4, 2, 4, 4, 2],
+        [3, 5, 1, 3, 1],
+      ],
+      [1, 5, 3, 5, 1, 2, 1, 4]
+    )
+  );
+}
 // https://www.zerocho.com/category/Algorithm/post/5b7bce15b35bf5001b940db9
 // https://programmers.co.kr/learn/challenges
