@@ -848,5 +848,53 @@ console.log(
     )
   );
 }
+
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // 폰켓몬
+  function solution(nums) {
+    let answer = [];
+    let choice = nums.length / 2;
+
+    nums.forEach((arr) => {
+      if (answer.length < choice) {
+        if (!answer.includes(arr)) {
+          answer.push(arr);
+        }
+      }
+    });
+
+    return answer.length;
+  }
+
+  console.log(solution([3, 1, 2, 3]));
+  console.log(solution([3, 3, 3, 2, 2, 2]));
+}
+
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // 최소직사각형
+  function solution(sizes) {
+    let max = 0;
+    let min = 0;
+
+    for (let l of sizes) {
+      if(l[0] > l[1]) {
+        if(max < l[0]) max = l[0];
+        if(min < l[1]) min = l[1];
+      } else {
+        if(max < l[1]) max = l[1];
+        if(min < l[0]) min = l[0];
+      }
+    };
+    return max * min;
+  }
+
+  console.log(solution([[60, 50], [30, 70], [60, 30], [80, 40]]));
+}
 // https://www.zerocho.com/category/Algorithm/post/5b7bce15b35bf5001b940db9
 // https://programmers.co.kr/learn/challenges
