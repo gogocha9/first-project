@@ -340,7 +340,18 @@ console.log(
   function solution(arr1, arr2) {
     return arr1.map((arr, i) => arr.map((v, j) => v + arr2[i][j]));
   }
-  console.log(solution([[1, 2],[2, 3]],[[3, 4],[5, 6]]));
+  console.log(
+    solution(
+      [
+        [1, 2],
+        [2, 3],
+      ],
+      [
+        [3, 4],
+        [5, 6],
+      ]
+    )
+  );
 }
 console.log(
   "------------------------------------------------------------------------"
@@ -686,90 +697,207 @@ console.log(
   "------------------------------------------------------------------------"
 );
 {
-  // 가운데 글자 가져오기
-  function solution(s) {
-    if(s.length % 2) {
-      return s.slice(s.length/2, s.length/2+1);
-    }
-    return s.slice(s.length/2 - 1, s.length/2 + 1);
-  }
-
-  console.log(solution("abcde"));
-  console.log(solution("qwer"));
-}
-
-console.log(
-  "------------------------------------------------------------------------"
-);
-{
-  // 3진법 뒤집기
+  // 정수 제곱근 판별 2
   function solution(n) {
-    let reversed_N = n.toString(3).split('').reverse().join('');
-    return parseInt(reversed_N, 3);
-}
-
-  console.log(solution(45));
-}
-
-console.log(
-  "------------------------------------------------------------------------"
-);
-{
-  // 숫자 문자열과 영단어
-  function solution(s) {
-    s = s.replace(/zero/g, 0);
-    s = s.replace(/one/g, 1);
-    s = s.replace(/tow/g, 2);
-    s = s.replace(/three/g, 3);
-    s = s.replace(/four/g, 4);
-    s = s.replace(/five/g, 5);
-    s = s.replace(/six/g, 6);
-    s = s.replace(/seven/g, 7);
-    s = s.replace(/eight/g, 8);
-    s = s.replace(/nine/g, 9);
-    return Number(s);
+    return Math.sqrt(n) % 1 === 0 ? (Math.sqrt(n) + 1) ** 2 : -1;
   }
 
-  console.log(solution("one4seveneight"));
+  console.log(solution(121));
+  console.log(solution(3));
 }
 
 console.log(
   "------------------------------------------------------------------------"
 );
 {
-  // 로또의 최고 순위와 최저 순위
-  function solution(lottos, win_nums) {
-    let answer = [];
-    let correct = lottos.filter((v) => win_nums.includes(v)).length;
-    let zero = lottos.filter((v) => v === 0).length;
-    let max = correct + zero;
-    // let min
-    return ;
-  }
-
-  console.log(solution([44, 1, 0, 0, 31, 25],[31, 10, 45, 1, 6, 19]));
-}
-
-console.log(
-  "------------------------------------------------------------------------"
-);
-{
-  // 실패율
-  function solution(N, stages) {
-    let answer = [];
-    let people = stages.length;
-
-    for(let i = 1; i <= N; i++) {
-      let fail = stages.filter(v => v === i).length;
-      answer.push([i, fail / people]);
-      people = people - fail;
+  // 내적
+  function solution(a, b) {
+    let answer = 0;
+    let sum = 0;
+    for (let i = 0; i < a.length; i++) {
+      sum = a[i] * b[i];
+      answer += sum;
     }
-    answer = answer.sort((p, c) => c[1] - p[1]);
-    return answer.map(v => v[0]);
+    return answer;
+  }
+
+  console.log(solution([1, 2, 3, 4], [-3, -1, 0, 2]));
+  console.log(solution([-1, 0, 1], [1, 0, -1]));
 }
 
-  console.log(solution(5, [2, 1, 2, 6, 2, 4, 3, 3]));
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // 신고 결과 받기
+  function solution(id_list, report, k) {
+    const answer = new Array(id_list.length);
+    answer.fill(0);
+    const report_list = {};
+
+    // key는 userId, value는 신고 당한 사람을 담기 위한 빈 배열
+    // map으로 key와 value만드는 법
+    id_list.map((user) => {
+      report_list[user] = [];
+    });
+
+    report.map((user) => {
+      const [user_id, report_id] = user.split(" ");
+      if (!report_list[report_id].includes(user_id)) {
+        report_list[report_id].push(user_id);
+      }
+    });
+
+    for (const key in report_list) {
+      if (report_list[key].length >= k) {
+        report_list[key].map((user) => {
+          answer[id_list.indexOf(user)] += 1;
+        });
+      }
+    }
+
+    return answer;
+  }
+
+  console.log(
+    solution(
+      ["muzi", "frodo", "apeach", "neo"],
+      ["muzi frodo", "apeach frodo", "frodo neo", "muzi neo", "apeach muzi"],
+      2
+    )
+  );
 }
 
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // 신고 결과 받기
+  function solution(id_list, report, k) {
+    let reports = [...new Set(report)].map((a) => {
+      return a.split(" ");
+    });
+
+    let counts = new Map();
+    for (const bad of reports) {
+      counts.set(bad[1], counts.get(bad[1]) + 1 || 1);
+    }
+
+    let good = new Map();
+    for (const report of reports) {
+      if (counts.get(report[1]) >= k) {
+        good.set(report[0], good.get(report[0]) + 1 || 1);
+      }
+    }
+
+    let answer = id_list.map((a) => good.get(a) || 0);
+    return answer;
+  }
+
+  console.log(
+    solution(
+      ["muzi", "frodo", "apeach", "neo"],
+      ["muzi frodo", "apeach frodo", "frodo neo", "muzi neo", "apeach muzi"],
+      2
+    )
+  );
+}
+
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // 크레인 인형뽑기 게임
+  function solution(board, moves) {
+    const basket = [];
+    let result = 0;
+    moves.forEach((order) => {
+      const doll = pickup(board, order - 1);
+      if (doll) {
+        if (basket[basket.length - 1] === doll) {
+          basket.pop();
+          result += 2;
+        } else {
+          basket.push(doll);
+        }
+      }
+    });
+    return result;
+  }
+
+  function pickup(board, order) {
+    for (let i = 0; i < board.length; i++) {
+      if (board[i][order] !== 0) {
+        const doll = board[i][order];
+        board[i][order] = 0;
+        return doll;
+      }
+    }
+  }
+
+  console.log(
+    solution(
+      [
+        [0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 3],
+        [0, 2, 5, 0, 1],
+        [4, 2, 4, 4, 2],
+        [3, 5, 1, 3, 1],
+      ],
+      [1, 5, 3, 5, 1, 2, 1, 4]
+    )
+  );
+}
+
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // 폰켓몬
+  function solution(nums) {
+    let answer = [];
+    let choice = nums.length / 2;
+
+    nums.forEach((arr) => {
+      if (answer.length < choice) {
+        if (!answer.includes(arr)) {
+          answer.push(arr);
+        }
+      }
+    });
+
+    return answer.length;
+  }
+
+  console.log(solution([3, 1, 2, 3]));
+  console.log(solution([3, 3, 3, 2, 2, 2]));
+}
+
+<<<<<<< HEAD
+=======
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // 최소직사각형
+  function solution(sizes) {
+    let max = 0;
+    let min = 0;
+
+    for (let l of sizes) {
+      if(l[0] > l[1]) {
+        if(max < l[0]) max = l[0];
+        if(min < l[1]) min = l[1];
+      } else {
+        if(max < l[1]) max = l[1];
+        if(min < l[0]) min = l[0];
+      }
+    };
+    return max * min;
+  }
+
+  console.log(solution([[60, 50], [30, 70], [60, 30], [80, 40]]));
+}
+>>>>>>> 01f8b4a712e724c205fbb33586ae0a0e5a1f0baa
 // https://www.zerocho.com/category/Algorithm/post/5b7bce15b35bf5001b940db9
 // https://programmers.co.kr/learn/challenges
