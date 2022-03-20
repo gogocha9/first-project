@@ -771,7 +771,5 @@ console.log(
   console.log(solution(5, [2, 1, 2, 6, 2, 4, 3, 3]));
 }
 
-
-
 // https://www.zerocho.com/category/Algorithm/post/5b7bce15b35bf5001b940db9
 // https://programmers.co.kr/learn/challenges
