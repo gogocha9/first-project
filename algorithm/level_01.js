@@ -872,9 +872,6 @@ console.log(
   console.log(solution([3, 1, 2, 3]));
   console.log(solution([3, 3, 3, 2, 2, 2]));
 }
-
-<<<<<<< HEAD
-=======
 console.log(
   "------------------------------------------------------------------------"
 );
@@ -898,6 +895,36 @@ console.log(
 
   console.log(solution([[60, 50], [30, 70], [60, 30], [80, 40]]));
 }
->>>>>>> 01f8b4a712e724c205fbb33586ae0a0e5a1f0baa
+console.log(
+  "------------------------------------------------------------------------"
+);
+{
+  // [1차]다트게임
+  function solution(dartResult) {
+    let answer = 0;
+    let score = 0;
+    let set = [];
+
+    for(let i = 0; i < dartResult.length; i++) {
+      if(!isNaN(dartResult[i])) {
+        score = Number(dartResult[i - 1]) === 1 ? 10 : Number(dartResult[i]);
+      } else if(dartResult[i] === 'S') {
+        set.push(score);
+      } else if(dartResult[i] === 'D') {
+        set.push(Math.pow(score, 2));
+      } else if(dartResult[i] === 'T') {
+        set.push(Math.pow(score, 3));
+      } else if(dartResult[i] === '*') {
+        set[set.length - 2] = set[set.length - 2] * 2;
+        set[set.length - 1] = set[set.length - 1] * 2;
+      } else if(dartResult[i] === '#') {
+        set[set.length - 1] = -1 * set[set.length - 1];
+      }
+      answer = set.reduce((a, c) => a + c, 0);
+    }
+    return answer;
+  }
+  console.log(solution("1S2D*3T"));
+}
 // https://www.zerocho.com/category/Algorithm/post/5b7bce15b35bf5001b940db9
 // https://programmers.co.kr/learn/challenges
