@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <script src="https://kit.fontawesome.com/c63796b854.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <nav>
         <div class="nav-left">
@@ -24,8 +26,50 @@
                 <input type="text" placeholder="Search">
             </div>
 
-            <div class="nav-user-icon online">
+            <div class="nav-user-icon online" onclick="settingsMenuToggle()">
                 <img src="images/profile-pic.png" alt="profile-pic">
+            </div>
+        </div>
+
+        <!------- settings-menu ------->
+        <div class="settings-menu">
+            <div id="dark-btn">
+                <span></span>
+            </div>
+
+            <div class="settings-menu-inner">
+                <div class="user-profile">
+                    <img src="images/profile-pic.png" alt="profile-pic">
+                    <div>
+                        <p>John Nicholson</p>
+                        <a href="#">See your profile</a>
+                    </div>
+                </div>
+                <hr>
+                <div class="user-profile">
+                    <img src="images/feedback.png" alt="feedback">
+                    <div>
+                        <p>Give Feedback</p>
+                        <a href="#">Help us to improve the new design</a>
+                    </div>
+                </div>
+                <hr>
+                <div class="settings-links">
+                    <img src="images/setting.png" alt="setting" class="settings-icon">
+                    <a href="#">Settings & Privacy <img src="images/arrow.png" alt="arrow" width="10px"></a>
+                </div>
+                <div class="settings-links">
+                    <img src="images/help.png" alt="help" class="settings-icon">
+                    <a href="#">Help & Support <img src="images/arrow.png" alt="arrow" width="10px"></a>
+                </div>
+                <div class="settings-links">
+                    <img src="images/display.png" alt="display" class="settings-icon">
+                    <a href="#">Display & Accessibility <img src="images/arrow.png" alt="arrow" width="10px"></a>
+                </div>
+                <div class="settings-links">
+                    <img src="images/logout.png" alt="logout" class="settings-icon">
+                    <a href="#">Logout <img src="images/arrow.png" alt="arrow" width="10px"></a>
+                </div>
             </div>
         </div>
     </nav>
@@ -91,12 +135,103 @@
                 <div class="post-input-container">
                     <textarea rows="3" placeholder="What's on your mind, John?"></textarea>
                     <div class="add-post-links">
-                        <a href="#"><img src="images/video.png" alt="video"> Live Video</a>
+                        <a href="#"><img src="images/live-video.png" alt="live-video"> Live Video</a>
                         <a href="#"><img src="images/photo.png" alt="photo"> Photo/Video</a>
                         <a href="#"><img src="images/feeling.png" alt="feeling"> Feling/Activity</a>
                     </div>
                 </div>
             </div>
+
+            <div class="post-container">
+                <div class="post-row">
+                    <div class="user-profile">
+                        <img src="images/profile-pic.png" alt="profile-pic">
+                        <div>
+                            <p>John Nicholson</p>
+                            <span>June 24 2021, 13:40 pm</span>
+                        </div>
+                    </div>
+                    <a href="#"><i class="fas fa-ellipsis-v"></i></a>
+                </div>
+
+                <p class="post-text">Like and share this video with frriends, tag<span>@Easy Tutorials</span> YouTube channel to watch more videos on
+                facebook page on your post. Ask your doubts in the comments
+                <a href="#">#EasyTutorials</a> <a href="#">#YouTubeChannel</a></p>
+                <img src="images/feed-image-2.png" alt="feed-image-2" class="post-img">
+
+                <div class="post-row">
+                    <div class="activity-icons">
+                        <div><img src="images/like-blue.png" alt="like-blue"> 120</div>
+                        <div><img src="images/comments.png" alt="comments"> 45</div>
+                        <div><img src="images/share.png" alt="share"> 20</div>
+                    </div>
+                    <div class="post-profile-icon">
+                        <img src="images/profile-pic.png" alt="profile-pic"> <i class="fas fa-caret-down"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post-container">
+                <div class="post-row">
+                    <div class="user-profile">
+                        <img src="images/profile-pic.png" alt="profile-pic">
+                        <div>
+                            <p>John Nicholson</p>
+                            <span>June 24 2021, 13:40 pm</span>
+                        </div>
+                    </div>
+                    <a href="#"><i class="fas fa-ellipsis-v"></i></a>
+                </div>
+
+                <p class="post-text">Like and share this video with frriends, tag<span>@Easy Tutorials</span> YouTube channel to watch more videos on
+                facebook page on your post. Ask your doubts in the comments
+                <a href="#">#EasyTutorials</a> <a href="#">#YouTubeChannel</a></p>
+                <img src="images/feed-image-4.png" alt="feed-image-2" class="post-img">
+
+                <div class="post-row">
+                    <div class="activity-icons">
+                        <div><img src="images/like-blue.png" alt="like-blue"> 120</div>
+                        <div><img src="images/comments.png" alt="comments"> 45</div>
+                        <div><img src="images/share.png" alt="share"> 20</div>
+                    </div>
+                    <div class="post-profile-icon">
+                        <img src="images/profile-pic.png" alt="profile-pic"> <i class="fas fa-caret-down"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="post-container">
+                <div class="post-row">
+                    <div class="user-profile">
+                        <img src="images/profile-pic.png" alt="profile-pic">
+                        <div>
+                            <p>John Nicholson</p>
+                            <span>June 24 2021, 13:40 pm</span>
+                        </div>
+                    </div>
+                    <a href="#"><i class="fas fa-ellipsis-v"></i></a>
+                </div>
+
+                <p class="post-text">Like and share this video with frriends, tag<span>@Easy Tutorials</span> YouTube channel to watch more videos on
+                facebook page on your post. Ask your doubts in the comments
+                <a href="#">#EasyTutorials</a> <a href="#">#YouTubeChannel</a></p>
+                <img src="images/feed-image-5.png" alt="feed-image-2" class="post-img">
+
+                <div class="post-row">
+                    <div class="activity-icons">
+                        <div><img src="images/like-blue.png" alt="like-blue"> 120</div>
+                        <div><img src="images/comments.png" alt="comments"> 45</div>
+                        <div><img src="images/share.png" alt="share"> 20</div>
+                    </div>
+                    <div class="post-profile-icon">
+                        <img src="images/profile-pic.png" alt="profile-pic"> <i class="fas fa-caret-down"></i>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="load-more-btn">Load More</button>
         </div>
         <!------- right-sidebar ------->
         <div class="right-sidebar">
@@ -160,5 +295,9 @@
         </div>
     </div>
 
+<div class="footer">
+    <p>Copyright 2021 - Easy Tutorials YouTube Chanel</p>
+</div>
+<script src="app.js"></script>
 </body>
 </html>
