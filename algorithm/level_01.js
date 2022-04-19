@@ -1,12 +1,10 @@
 "use strict";
 {
-  // 2021년 a월 b일은 무슨 요일일까요?
+  // 2022년 a월 b일은 무슨 요일일까요?
   function solution(a, b) {
-    return ["일", "월", "화", "수", "목", "금", "토"][
-      new Date(2021, a - 1, b).getDay()
-    ];
+    return ["일","월","화","수","목","금","토"][new Date(2022, a - 1, b).getDay()];
   }
-  console.log(solution(12, 31));
+  console.log(solution(4, 5));
 }
 console.log(
   "------------------------------------------------------------------------"
