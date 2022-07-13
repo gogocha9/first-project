@@ -120,7 +120,7 @@ exports.update = function(request, response) {
                     <form action="/update_process" method="post">
                         <input type="hidden" name="id" value="${topic[0].id}">
                         <p><input type="text" name="title" placeholder="title"
-                                   value="${sanitizeHtml(topic[0].title)}"></p>
+                                value="${sanitizeHtml(topic[0].title)}"></p>
                         <p>
                             <textarea name="description" placeholder="description">
                             ${sanitizeHtml(topic[0].description)}</textarea>
@@ -166,7 +166,7 @@ exports.delete_process = function(request, response) {
         var post = qs.parse(body);
         db.query('DELETE FROM topic WHERE id = ?', [post.id], function(error, result) {
             if(error) {
-                 throw error;
+                throw error;
             }
             response.writeHead(302, {Location: `/`});
             response.end();
