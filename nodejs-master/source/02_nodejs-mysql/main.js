@@ -24,6 +24,8 @@ var app = http.createServer(function(request, response) {
         topic.update(request, response);
     } else if(pathname === '/update_process') {
         topic.update_process(request, response);
+    } else if(pathname === '/search') {
+        topic.search(request, response);
     } else if(pathname === '/delete_process') {
         topic.delete_process(request, response);
     } else if(pathname === '/author') {
